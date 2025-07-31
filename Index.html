@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rager Edits - Video Editor Flyer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Montserrat:wght@400;600;700;800&family=Oswald:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .flyer {
+            width: 100%;
+            max-width: 100vw;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b69 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px;
+            margin: 0;
+            box-shadow: none;
+        }
+        
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: 
+                radial-gradient(circle at 20% 50%, #ff0040 2px, transparent 2px),
+                radial-gradient(circle at 80% 50%, #00ff41 2px, transparent 2px);
+            background-size: 50px 50px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-title {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(2rem, 8vw, 3.2rem);
+            color: #ff0040;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1rem, 4vw, 1.8rem);
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffd700;
+        }
+        
+        .tagline {
+            font-size: 1rem;
+            color: #cccccc;
+            font-style: italic;
+        }
+        
+        .services-section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .services-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: #00ff41;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            font-size: 0.95rem;
+        }
+        
+        .service-item .icon {
+            color: #ff0040;
+            font-size: 1.2rem;
+            margin-right: 12px;
+            min-width: 20px;
+        }
+        
+        .service-item .text {
+            font-weight: 600;
+        }
+        
+        .results-box {
+            background: linear-gradient(45deg, #ff0040, #ff4081);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .results-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial {
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: #ffd700;
+        }
+        
+        .stat-text {
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        
+        .offer-section {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a1a;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+            border: 3px solid #ff0040;
+            position: relative;
+        }
+        
+        .offer-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff0040;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .offer-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #2d1b69;
+        }
+        
+        .offer-subtitle {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .offer-details {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .pricing-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .price-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .price-title {
+            font-weight: 700;
+            color: #00ff41;
+            margin-bottom: 8px;
+        }
+        
+        .price {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.5rem;
+            color: #ffd700;
+        }
+        
+        .contact-section {
+            background: rgba(0,255,65,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid #00ff41;
+        }
+        
+        .contact-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: #00ff41;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        
+        .contact-item {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .contact-label {
+            color: #ffd700;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .phone-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: #ff0040;
+        }
+        
+        .instagram {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: #00ff41;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .footer-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .footer-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-feature {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .whatsapp-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid #25D366;
+        }
+        
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            background: linear-gradient(45deg, #128C7E, #25D366);
+        }
+        
+        .footer-tagline {
+            font-style: italic;
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: rgba(255,0,64,0.3);
+        }
+        
+        .film-strip {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 2rem;
+            color: rgba(0,255,65,0.3);
+        }
+        
+        @media print {
+            .flyer {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <div class="bg-pattern"></div>
+        <div class="play-icon">▶</div>
+        <div class="film-strip">🎬</div>
+        
+        <div class="header">
+            <h1 class="main-title">RAGER EDITS</h1>
+            <h2 class="subtitle">Transform Your Raw Videos Into VIRAL Content!</h2>
+            <p class="tagline">Professional TikTok, Reels & YouTube Editor | 500+ Videos Delivered</p>
+        </div>
+        
+        <div class="services-section">
+            <h3 class="services-title">💡 I Turn Your Ideas Into Scroll-Stopping Content</h3>
+            
+            <div class="service-item">
+                <span class="icon">✅</span>
+                <span class="text">TikTok / Instagram Reels / YouTube Shorts - Trending transitions & viral sounds</span>
+            </div>
+            
+            <div class="service-item">
+                <span class="icon">✅</span>
+                <span class="text">Eye-catching captions & motion graphics - Perfect timing & hook optimization</span>
+            </div>
+            
+            <div class="service-item">
+                <span class="icon">✅</span>
+                <span class="text">Event highlight videos - Birthdays, weddings, business events & product launches</span>
+            </div>
+            
+            <div class="service-item">
+                <span class="icon">✅</span>
+                <span class="text">Color grading & audio enhancement - Custom thumbnails that get clicks</span>
+            </div>
+        </div>
+        
+        <div class="results-box">
+            <h3 class="results-title">📈 CLIENT SUCCESS STORIES</h3>
+            <p class="testimonial">"My TikTok went from 200 to 50K views after working with Rager Edits!" - @happycreator23</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">3X</div>
+                    <div class="stat-text">More Engagement</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-text">Hit 10K+ Views</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">48HR</div>
+                    <div class="stat-text">Delivery Guaranteed</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="offer-section">
+            <div class="offer-badge">🔥 LIMITED TIME</div>
+            <h3 class="offer-title">FREE TRIAL EDIT!</h3>
+            <h4 class="offer-subtitle">Get a professional 10-second sample edit of YOUR content</h4>
+            <p class="offer-details">No payment required | No contracts | Just results<br>
+            <strong>Send your raw footage and see the magic happen!</strong></p>
+        </div>
+        
+        <div class="pricing-section">
+            <div class="price-card">
+                <div class="price-title">Quick Edits</div>
+                <div class="price">$15-25</div>
+                <div style="font-size: 0.8rem; margin-top: 5px;">TikToks/Reels</div>
+            </div>
+            <div class="price-card">
+                <div class="price-title">Premium Videos</div>
+                <div class="price">$35-50</div>
+                <div style="font-size: 0.8rem; margin-top: 5px;">YouTube/Long-form</div>
+            </div>
+            <div class="price-card">
+                <div class="price-title">Event Packages</div>
+                <div class="price">$75+</div>
+                <div style="font-size: 0.8rem; margin-top: 5px;">Special occasions</div>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <h3 class="contact-title">📲 READY TO GO VIRAL? LET'S CONNECT!</h3>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="https://wa.me/2347068267749?text=Hello%20I'm%20interested%20in%20your%20work" 
+                   class="whatsapp-button" target="_blank">
+                    📱 Message Me on WhatsApp
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">WhatsApp (Fastest Response):</span>
+                    <span class="phone-number">+234 706 826 7749</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Instagram:</span>
+                    <span class="instagram">@rageredits</span>
+                </div>
+            </div>
+            
+            <p style="margin-top: 15px; font-weight: 600; color: #ffd700;">
+                Response Time: Under 2 hours | Available 7 Days/Week
+            </p>
+        </div>
+        
+        <div class="footer">
+            <h4 class="footer-title">✨ WHY CHOOSE RAGER EDITS?</h4>
+            <div class="footer-features">
+                <span class="footer-feature">⚡ 24-48 Hour Delivery</span>
+                <span class="footer-feature">💎 Unlimited Revisions</span>
+                <span class="footer-feature">🎯 Viral-Focused Strategy</span>
+            </div>
+            <p class="footer-tagline">Join 200+ creators who've transformed their content game</p>
+        </div>
+    </div>
+</body>
+  </html>
